@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: pink;
+  background-color: lightblue;
 }
 
 /* h1 {
@@ -26,10 +26,11 @@ body {
 }
 
 .header {
-  display: flex;
+  /* display: flex; */
   /* justify-content: space-between; */
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
+  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -64,6 +65,7 @@ body {
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
+  border-radius: 10px;
 }
 
 .task.reminder {
@@ -77,6 +79,8 @@ body {
 }
 
 .add-form {
+  width: 50%;
+  margin: auto;
   margin-bottom: 40px;
 }
 
@@ -94,8 +98,12 @@ body {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+  border-radius: 5px;
+  border-style: hidden;
 }
-
+input:focus {
+  outline: none;
+}
 .form-control-check {
   display: flex;
   align-items: center;
