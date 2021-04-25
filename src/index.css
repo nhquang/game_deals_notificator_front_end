@@ -22,7 +22,7 @@ body {
   min-height: 300px;
   border: 1px solid steelblue;
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .header {
@@ -61,11 +61,20 @@ body {
   width: 100%;
 }
 
-.task {
+.game {
   background: #f4f4f4;
-  margin: 5px;
+  margin-top: 5px;
   padding: 10px 20px;
   border-radius: 10px;
+  cursor: pointer;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+
+.game:hover{
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .task.reminder {
@@ -122,4 +131,15 @@ input:focus {
 footer {
   margin-top: 30px;
   text-align: center;
+}
+
+.modal {
+  width: 40%;
+  height: 60%;
+  top: 50px;
+  margin-left: 30%;
+  margin-right: 30%;
+  position: absolute;
+  border-radius: 15px;
+  background-color: lightcyan;
 }
