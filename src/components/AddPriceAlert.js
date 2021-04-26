@@ -15,6 +15,9 @@ function AddPriceAlert({addPriceAlert, gameID, gameTitle}) {
             setCurrency(prev => 1);
             setPrice(prev => 0.0);
         }
+        else if (!name && !email) alert("Enter your name and email!!!");
+        else if (!name) alert("Enter your name!!!");
+        else alert("Enter your email!!!")
     };
     return (
 
