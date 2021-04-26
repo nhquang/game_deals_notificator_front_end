@@ -51,7 +51,7 @@ function App() {
           <AddPriceAlert addPriceAlert = {addPriceAlert} gameID = {gameid}/>
         </Modal.Body>
         <Modal.Footer>
-          <Button style={{display: "block", marginLeft:"auto", marginRight:"auto", marginBottom : "20px", backgroundColor:"red"}} onClick={handleClose}>Close</Button>
+          <Button style={{display: "block", marginLeft:"auto", marginRight:"auto", marginBottom : "30px", backgroundColor:"red"}} onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>
       

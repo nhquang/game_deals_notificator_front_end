@@ -143,8 +143,7 @@ footer {
   top: 50px;
   margin-left: 30%;
   margin-right: 30%;
-  position: absolute;
+  position: fixed; 
   border-radius: 15px;
-  overflow: auto;
   background-color: lightcyan;
 }
