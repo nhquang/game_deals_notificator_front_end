@@ -1,5 +1,5 @@
 import Header from './components/Header'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import SearchGame from './components/SearchGame'
 import Games from './components/Games'
 import {Modal, Button} from 'react-bootstrap'
@@ -15,6 +15,7 @@ function App() {
 
 
   const handleClose = () => setShow(prev => false);
+
   const handleShow = (gameTitle,gameID) => {
     setShow(prev => prev = true);
     setGameModal(prev => prev = gameTitle);
@@ -40,17 +41,17 @@ function App() {
 
   return (
     <div className="container">
-      <Header title = "Game Price Notificator"/>
+      <Header title = "Game Deals Notificator" subtitle = "Search for a game and set a price alert"/>
 
       <Modal className="modal" show={show}>
         <Modal.Header>
-          <Modal.Title style={{textAlign: "center", marginTop:"30px"}}>{"Set price alert for " + gameModal}</Modal.Title>
+          <Modal.Title style={{textAlign: "center", marginTop:"20px"}}>{"Set price alert for " + gameModal}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddPriceAlert addPriceAlert = {addPriceAlert} gameID = {gameid}/>
         </Modal.Body>
         <Modal.Footer>
-          <Button style={{display: "block",margin: "auto", backgroundColor:"red"}} onClick={handleClose}>Close</Button>
+          <Button style={{display: "block", marginLeft:"auto", marginRight:"auto", marginBottom : "20px", backgroundColor:"red"}} onClick={handleClose}>Close</Button>
         </Modal.Footer>
       </Modal>
       

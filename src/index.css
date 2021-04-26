@@ -93,6 +93,10 @@ body {
   margin-bottom: 40px;
 }
 
+.add-form .btn{
+  margin-left: 0%;
+}
+
 .form-control {
   margin: 20px 0;
 }
@@ -105,6 +109,7 @@ body {
   width: 100%;
   height: 40px;
   margin: 5px;
+  margin-left: 0%;
   padding: 3px 7px;
   font-size: 17px;
   border-radius: 5px;
@@ -135,11 +140,11 @@ footer {
 
 .modal {
   width: 40%;
-  height: 58%;
   top: 50px;
   margin-left: 30%;
   margin-right: 30%;
   position: absolute;
   border-radius: 15px;
+  overflow: auto;
   background-color: lightcyan;
 }
