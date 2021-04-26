@@ -23,7 +23,7 @@ function App() {
   };
   
   const retrieveGame = async(gameTitle) =>{
-    let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net//notifications/getgames?title=${gameTitle}`);
+    let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getgames?title=${gameTitle}`);
     let parsed = await rslt.json();
     if(parsed.status) {
       setGames(prev => parsed.games);
@@ -31,12 +31,11 @@ function App() {
     }
   };
 
-  const addPriceAlert = async({name, email, currency, price, gameID}) =>{
-    var formatted = {game_id : gameID, email : email, name : name, price : price, currency : currency};
+  const addPriceAlert = async({name, email, currency, price, gameID, gameTitle}) =>{
+    var formatted = {game_id : gameID, email : email, name : name, price : price, currency : currency, game : gameTitle};
     let rslt = await fetch("https://gamedealsnotificator.azurewebsites.net/notifications/AddNotification", {method: "POST", headers:{"Content-type" : "application/json"}, body: JSON.stringify(formatted)});
     let parsed = await rslt.json();
-    if(parsed.status) alert(parsed.message);
-    else alert(parsed.message);
+    alert(parsed.message);
   };
 
   return (
@@ -48,7 +47,7 @@ function App() {
           <Modal.Title style={{textAlign: "center", marginTop:"20px"}}>{"Set price alert for " + gameModal}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddPriceAlert addPriceAlert = {addPriceAlert} gameID = {gameid}/>
+          <AddPriceAlert addPriceAlert = {addPriceAlert} gameID = {gameid} gameTitle = {gameModal}/>
         </Modal.Body>
         <Modal.Footer>
           <Button style={{display: "block", marginLeft:"auto", marginRight:"auto", marginBottom : "30px", backgroundColor:"red"}} onClick={handleClose}>Close</Button>

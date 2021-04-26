@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 
-function AddPriceAlert({addPriceAlert, gameID}) {
+function AddPriceAlert({addPriceAlert, gameID, gameTitle}) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [currency, setCurrency] = useState(1);
@@ -9,7 +9,7 @@ function AddPriceAlert({addPriceAlert, gameID}) {
     const submitting = (e) => {
         e.preventDefault();
         if(name && email){
-            addPriceAlert({name, email, currency, price, gameID});
+            addPriceAlert({name, email, currency, price, gameID, gameTitle});
             setName(prev => "");
             setEmail(prev => "");
             setCurrency(prev => 1);
