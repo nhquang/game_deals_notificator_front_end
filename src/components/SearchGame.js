@@ -9,6 +9,7 @@ function SearchGame(props) {
             props.getGames(text);
             setText(prev => "");
         }
+        else alert("Enter a game title!!!");
     };
     return (
 

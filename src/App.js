@@ -22,7 +22,7 @@ function App() {
   };
   
   const retrieveGame = async(gameTitle) =>{
-    let rslt = await fetch(`https://localhost:44371/notifications/getgames?title=${gameTitle}`);
+    let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net//notifications/getgames?title=${gameTitle}`);
     let parsed = await rslt.json();
     if(parsed.status) {
       setGames(prev => parsed.games);
@@ -31,9 +31,8 @@ function App() {
   };
 
   const addPriceAlert = async({name, email, currency, price, gameID}) =>{
-    //name, email, currency, price
     var formatted = {game_id : gameID, email : email, name : name, price : price, currency : currency};
-    let rslt = await fetch("https://localhost:44371/notifications/AddNotification", {method: "POST", headers:{"Content-type" : "application/json"}, body: JSON.stringify(formatted)});
+    let rslt = await fetch("https://gamedealsnotificator.azurewebsites.net/notifications/AddNotification", {method: "POST", headers:{"Content-type" : "application/json"}, body: JSON.stringify(formatted)});
     let parsed = await rslt.json();
     if(parsed.status) alert(parsed.message);
     else alert(parsed.message);
