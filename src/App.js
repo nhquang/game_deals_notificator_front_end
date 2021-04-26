@@ -5,6 +5,7 @@ import Games from './components/Games'
 import {Modal, Button} from 'react-bootstrap'
 import Error from './components/Error'
 import AddPriceAlert from './components/AddPriceAlert'
+import Footer from './components/Footer'
 
 function App() {
   const [games, setGames] = useState([]);
@@ -57,6 +58,7 @@ function App() {
       <SearchGame getGames = {retrieveGame}/>
       {error && <Error/>}
       <Games games = {games} handleShow = {handleShow}/>
+      <Footer />
     </div>
   );
 }
