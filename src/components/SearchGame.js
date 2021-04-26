@@ -7,7 +7,7 @@ function SearchGame(props) {
         e.preventDefault();
         if(text){
             props.getGames(text);
-            setText(prev => "");
+            //setText(prev => "");
         }
         else alert("Enter a game title!!!");
     };
