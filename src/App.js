@@ -24,19 +24,29 @@ function App() {
   };
   
   const retrieveGame = async(gameTitle) =>{
-    let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getgames?title=${gameTitle}`);
-    let parsed = await rslt.json();
-    if(parsed.status) {
-      setGames(prev => parsed.games);
-      parsed.games.length > 0 ? setError(prev => false) : setError(prev => true);
+    try{
+      let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getgames?title=${gameTitle}`);
+      let parsed = await rslt.json();
+      if(parsed.status) {
+        setGames(prev => parsed.games);
+        parsed.games.length > 0 ? setError(prev => false) : setError(prev => true);
+      }
+    }
+    catch(err){
+      console.log(err);
     }
   };
 
   const addPriceAlert = async({name, email, currency, price, gameID, gameTitle}) =>{
-    var formatted = {game_id : gameID, email : email, name : name, price : price, currency : currency, game : gameTitle};
-    let rslt = await fetch("https://gamedealsnotificator.azurewebsites.net/notifications/AddNotification", {method: "POST", headers:{"Content-type" : "application/json"}, body: JSON.stringify(formatted)});
-    let parsed = await rslt.json();
-    alert(parsed.message);
+    try{
+      var formatted = {game_id : gameID, email : email, name : name, price : price, currency : currency, game : gameTitle};
+      let rslt = await fetch("https://gamedealsnotificator.azurewebsites.net/notifications/AddNotification", {method: "POST", headers:{"Content-type" : "application/json"}, body: JSON.stringify(formatted)});
+      let parsed = await rslt.json();
+      alert(parsed.message);
+    }
+    catch(err){
+      console.log(err);
+    }
   };
 
   return (
