@@ -6,6 +6,7 @@ import {Modal, Button} from 'react-bootstrap'
 import Error from './components/Error'
 import AddPriceAlert from './components/AddPriceAlert'
 import Footer from './components/Footer'
+import Deals from './components/Deals'
 
 function App() {
   const [games, setGames] = useState([]);
@@ -13,9 +14,15 @@ function App() {
   const [gameModal, setGameModal] = useState("");
   const [gameid, setGameId] = useState(0);
   const [error, setError] = useState(false);
+  const [deals, setDeals] = useState([]);
 
 
-  const handleClose = () => setShow(prev => false);
+  const handleClose = () => {
+    setShow(prev => false);
+    setGameModal(prev => prev = "");
+    setGameId(prev => prev = 0);
+    setDeals(prev => []);
+  }
 
   const handleShow = (gameTitle,gameID) => {
     setShow(prev => prev = true);
@@ -59,6 +66,7 @@ function App() {
         </Modal.Header>
         <Modal.Body>
           <AddPriceAlert addPriceAlert = {addPriceAlert} gameID = {gameid} gameTitle = {gameModal}/>
+          <Deals deals = {deals}/>
         </Modal.Body>
         <Modal.Footer>
           <Button style={{display: "block", marginLeft:"auto", marginRight:"auto", marginBottom : "30px", backgroundColor:"red"}} onClick={handleClose}>Close</Button>
