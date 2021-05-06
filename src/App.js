@@ -33,7 +33,7 @@ function App() {
   
   const retrieveDeals = async (gameID) =>{
     try{
-      let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getdeals?id=${gameid}`);
+      let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getdeals?id=${gameID}`);
       //let rslt = await fetch(`https://localhost:44371/notifications/getdeals?id=${gameID}`);
       let parsed = await rslt.json();
       if(parsed.status){
