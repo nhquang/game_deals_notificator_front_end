@@ -6,7 +6,7 @@ function Game({name, image, handleShow, gameID}) {
     }
 
     return (
-        <div className="game" onClick={gameClicked}>
+        <div className="item" onClick={gameClicked}>
             <h3>{name}</h3>
             <img src={image} alt={name} width={50} height={30}/>
         </div>
