@@ -7,6 +7,8 @@ import Error from './components/Error'
 import AddPriceAlert from './components/AddPriceAlert'
 import Footer from './components/Footer'
 import Deals from './components/Deals'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import ManageAlerts from './components/ManageAlerts'
 
 function App() {
   const [games, setGames] = useState([]);
@@ -41,11 +43,11 @@ function App() {
       }
     }
     catch(err){
-      console.log(err);
+      console.log(err.message);
     }
   }
 
-  const retrieveGame = async(gameTitle) =>{
+  const retrieveGames = async(gameTitle) =>{
     try{
       let rslt = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getgames?title=${gameTitle}`);
       //let rslt = await fetch(`https://localhost:44371/notifications/getgames?title=${gameTitle}`);
@@ -56,7 +58,7 @@ function App() {
       }
     }
     catch(err){
-      console.log(err);
+      console.log(err.message);
     }
   };
 
@@ -69,14 +71,17 @@ function App() {
       alert(parsed.message);
     }
     catch(err){
-      console.log(err);
+      console.log(err.message);
     }
   };
 
   return (
+    <Router>
     <div className="container">
+      
+      <Route path="/" exact render={(props)=>(
+      <>
       <Header title = "Game Deals Notificator" subtitle = "Search for a game and set a price alert"/>
-
       <Modal className="modal" show={show}>
         <Modal.Header>
           <Modal.Title style={{textAlign: "center", marginTop:"20px"}}>{"Set price alert for " + gameModal}</Modal.Title>
@@ -90,11 +95,15 @@ function App() {
         </Modal.Footer>
       </Modal>
       
-      <SearchGame getGames = {retrieveGame}/>
+      <SearchGame getGames = {retrieveGames}/>
       {error && <Error/>}
       <Games games = {games} handleShow = {handleShow}/>
+      </>
+      )}/>
+      <Route path="/manage" component={ManageAlerts}/>
       <Footer />
     </div>
+    </Router>
   );
 }
 
