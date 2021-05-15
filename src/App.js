@@ -79,8 +79,8 @@ function App() {
   };
   const retrieveAlerts = async (email)=>{
     try{
-        //const data = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getnotifications?email=${email}`);
-        const data = await fetch(`https://localhost:44371/notifications/getnotifications?email=${email}`);
+        const data = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getnotifications?email=${email}`);
+        //const data = await fetch(`https://localhost:44371/notifications/getnotifications?email=${email}`);
         const parsed = await data.json();
         if(parsed.status){
             setAlerts(prev => parsed.notifications);
@@ -95,8 +95,8 @@ function App() {
   const deleteAlert = async (game_id, price, email, name, currency, game) => {
     try{
         const formatted = {game_id: game_id, email : email, price : price, name : name, currency : currency, game: game};
-        //const data = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/deletenotification`, {method: "DELETE", headers:{"Content-type" : "application/json"}, body : JSON.stringify(formatted)});
-        const data = await fetch(`https://localhost:44371/notifications/DeleteNotification`, {method: "DELETE", headers:{"Content-type" : "application/json"}, body : JSON.stringify(formatted)});
+        const data = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/deletenotification`, {method: "DELETE", headers:{"Content-type" : "application/json"}, body : JSON.stringify(formatted)});
+        //const data = await fetch(`https://localhost:44371/notifications/DeleteNotification`, {method: "DELETE", headers:{"Content-type" : "application/json"}, body : JSON.stringify(formatted)});
         const parsed = await data.json();
         if(parsed.status)
             setAlerts(alerts.filter((item) => item.game_id != game_id && item.price != price));
@@ -117,7 +117,7 @@ function App() {
     <Router>
     <div className="container">
       
-      <Route path="/game_deals_notificator_front_end" exact render={(props)=>(
+      <Route path="/game_deals_notificator_front_end/" exact render={(props)=>(
       <>
       <Header title = "Game Deals Notificator" subtitle = "Search for a game and set a price alert"/>
       <Modal className="modal" show={show}>
@@ -138,7 +138,7 @@ function App() {
       <Games games = {games} handleShow = {handleShow}/>
       </>
       )}/>
-      <Route path="/managealert" render ={() => <ManageAlerts deleteAlert = {deleteAlert} retrieveAlerts = {retrieveAlerts} alerts ={alerts} error = {alerterror} emailText = {emailText} changeEmailText ={changeEmailText}/>}/>
+      <Route path="/game_deals_notificator_front_end/managealert/" render ={() => <ManageAlerts deleteAlert = {deleteAlert} retrieveAlerts = {retrieveAlerts} alerts ={alerts} error = {alerterror} emailText = {emailText} changeEmailText ={changeEmailText}/>}/>
       <Footer />
     </div>
     </Router>
