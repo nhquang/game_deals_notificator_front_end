@@ -117,7 +117,7 @@ function App() {
     <Router>
     <div className="container">
       
-      <Route path="/" exact render={(props)=>(
+      <Route path="/game_deals_notificator_front_end" exact render={(props)=>(
       <>
       <Header title = "Game Deals Notificator" subtitle = "Search for a game and set a price alert"/>
       <Modal className="modal" show={show}>
