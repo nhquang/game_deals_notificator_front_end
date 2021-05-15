@@ -17,7 +17,10 @@ function App() {
   const [gameid, setGameId] = useState(0);
   const [error, setError] = useState(false);
   const [deals, setDeals] = useState([]);
-
+  const [alerts, setAlerts] = useState([]);
+  const [alerterror, setAlertError] = useState("");
+  const [emailText, setEmailText] = useState("");
+  const [gameText, setGameText] = useState("");
 
   const handleClose = () => {
     setShow(prev => false);
@@ -74,7 +77,42 @@ function App() {
       console.log(err.message);
     }
   };
+  const retrieveAlerts = async (email)=>{
+    try{
+        //const data = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/getnotifications?email=${email}`);
+        const data = await fetch(`https://localhost:44371/notifications/getnotifications?email=${email}`);
+        const parsed = await data.json();
+        if(parsed.status){
+            setAlerts(prev => parsed.notifications);
+            parsed.notifications.length > 0 ? setAlertError(prev => false) : setAlertError(prev => true);
+        }
+        else throw parsed;
+    }
+    catch(err){
+        console.log(err.message);
+    }
+};
+  const deleteAlert = async (game_id, price, email, name, currency, game) => {
+    try{
+        const formatted = {game_id: game_id, email : email, price : price, name : name, currency : currency, game: game};
+        //const data = await fetch(`https://gamedealsnotificator.azurewebsites.net/notifications/deletenotification`, {method: "DELETE", headers:{"Content-type" : "application/json"}, body : JSON.stringify(formatted)});
+        const data = await fetch(`https://localhost:44371/notifications/DeleteNotification`, {method: "DELETE", headers:{"Content-type" : "application/json"}, body : JSON.stringify(formatted)});
+        const parsed = await data.json();
+        if(parsed.status)
+            setAlerts(alerts.filter((item) => item.game_id != game_id && item.price != price));
+        else throw parsed;
+    }
+    catch(err){
+        console.log(err.message);
+    }
 
+  };
+  const changeEmailText = (email)=>{
+    setEmailText(prev => email);
+  }
+  const changeGameText = (game)=>{
+    setGameText(prev => game)
+  }
   return (
     <Router>
     <div className="container">
@@ -95,12 +133,12 @@ function App() {
         </Modal.Footer>
       </Modal>
       
-      <SearchGame getGames = {retrieveGames}/>
+      <SearchGame getGames = {retrieveGames} text = {gameText} changeGameText ={changeGameText}/>
       {error && <Error/>}
       <Games games = {games} handleShow = {handleShow}/>
       </>
       )}/>
-      <Route path="/manage" component={ManageAlerts}/>
+      <Route path="/managealert" render ={() => <ManageAlerts deleteAlert = {deleteAlert} retrieveAlerts = {retrieveAlerts} alerts ={alerts} error = {alerterror} emailText = {emailText} changeEmailText ={changeEmailText}/>}/>
       <Footer />
     </div>
     </Router>

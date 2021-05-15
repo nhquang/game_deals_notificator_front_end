@@ -6,7 +6,7 @@ function Alerts(props) {
     return (
         <>
             {props.alerts.map((item) =>(
-                <Alert key = {++id} gameid = {item.game_id} game = {item.game} price = {item.price} email = {item.email} currency = {item.currency} onDelete = {props.onDelete}/>
+                <Alert key = {++id} gameid = {item.game_id} name = {item.name} game = {item.game} price = {item.price} email = {item.email} currency = {item.currency} onDelete = {props.onDelete}/>
             ))}
         </>
     )

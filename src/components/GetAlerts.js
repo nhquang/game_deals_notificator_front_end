@@ -1,26 +1,19 @@
 import React from 'react'
-import {useState} from 'react'
-import PropTypes from 'prop-types'
 
 function GetAlerts(props) {
-    const [text, setText] = useState("");
     const submitting = (e)=>{
         e.preventDefault();
-        if(text) props.getAlerts(text);
-        else alert("Enter a game title!!!");
-    }
+        if(props.text) props.getAlerts(props.text);
+        else alert("Enter your email!!!");
+    };
     return (
         <form className= "add-form" onSubmit={submitting}>
             <div className='form-control'>
-                <input type="email" placeholder="Enter your email" value={text} onChange={(e) => setText(e.target.value)}/>
+                <input type="email" placeholder="Enter your email" value={props.text} onChange={(e) => props.setText(e.target.value)}/>
             </div>
             <input type="submit" value ="Search" className="btn btn-block"/>
         </form>
     )
-}
-
-GetAlerts.propTypes = {
-
 }
 
 export default GetAlerts

@@ -6,8 +6,8 @@ function Footer() {
     const location = useLocation();
     return (
         <footer>
-            {location.pathname === "/" && <Link to="/manage">Manage Alerts</Link>}
-            {location.pathname === "/manage" && <Link to="/">Back</Link>}
+            {location.pathname === "/" && <Link to="/managealert">Manage Alerts</Link>}
+            {location.pathname === "/managealert" && <Link to="/">Back</Link>}
             <p>Copyright &copy; 2021</p>
             {/* <a href="https://www.linkedin.com/in/quang-nguyen-090b30b0/" rel="noreferrer" target="_blank">Quang Nguyen</a> */}
             <p>Quang Nguyen</p>
