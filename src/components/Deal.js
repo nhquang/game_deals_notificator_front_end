@@ -9,7 +9,7 @@ function Deal({storeName, storeURL, price}) {
     else if (price > 9) cprice = price * rate2;
     else cprice = price * rate3;
     return (
-        <div className="item" style={{cursor : "auto"}}>
+        <div className="item" style={{cursor : "auto", width:"100%"}}>
             <h3><a href={storeURL} style={{textDecoration:"none"}} target="_blank" rel="noreferrer">{storeName}</a></h3>
             Price: ${price} ~ C${Math.round((cprice + Number.EPSILON) * 100) / 100}
         </div>
