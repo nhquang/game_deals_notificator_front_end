@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/game_deals_notificator_front_end/static/css/main.f4d5a009.chunk.css",
-    "main.js": "/game_deals_notificator_front_end/static/js/main.b428642c.chunk.js",
-    "main.js.map": "/game_deals_notificator_front_end/static/js/main.b428642c.chunk.js.map",
+    "main.css": "/game_deals_notificator_front_end/static/css/main.a23dcb53.chunk.css",
+    "main.js": "/game_deals_notificator_front_end/static/js/main.bcafc1dd.chunk.js",
+    "main.js.map": "/game_deals_notificator_front_end/static/js/main.bcafc1dd.chunk.js.map",
     "runtime-main.js": "/game_deals_notificator_front_end/static/js/runtime-main.c2faa623.js",
     "runtime-main.js.map": "/game_deals_notificator_front_end/static/js/runtime-main.c2faa623.js.map",
     "static/js/2.e9de7407.chunk.js": "/game_deals_notificator_front_end/static/js/2.e9de7407.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.5556affa.chunk.js": "/game_deals_notificator_front_end/static/js/3.5556affa.chunk.js",
     "static/js/3.5556affa.chunk.js.map": "/game_deals_notificator_front_end/static/js/3.5556affa.chunk.js.map",
     "index.html": "/game_deals_notificator_front_end/index.html",
-    "static/css/main.f4d5a009.chunk.css.map": "/game_deals_notificator_front_end/static/css/main.f4d5a009.chunk.css.map",
+    "static/css/main.a23dcb53.chunk.css.map": "/game_deals_notificator_front_end/static/css/main.a23dcb53.chunk.css.map",
     "static/js/2.e9de7407.chunk.js.LICENSE.txt": "/game_deals_notificator_front_end/static/js/2.e9de7407.chunk.js.LICENSE.txt",
     "static/media/index.css": "/game_deals_notificator_front_end/static/media/background.0bf7be7c.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c2faa623.js",
     "static/js/2.e9de7407.chunk.js",
-    "static/css/main.f4d5a009.chunk.css",
-    "static/js/main.b428642c.chunk.js"
+    "static/css/main.a23dcb53.chunk.css",
+    "static/js/main.bcafc1dd.chunk.js"
   ]
 }
