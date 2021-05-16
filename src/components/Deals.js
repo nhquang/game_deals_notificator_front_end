@@ -4,7 +4,7 @@ import Deal from './Deal';
 function Deals(props) {
     const redirectURL = "https://www.cheapshark.com/redirect?dealID=";
     return (
-        <div className={`${ props.deals.length > 2 ? "deals" : ""}`} style={{ padding: "0px 20px 20px 20px", marginBottom:"20px", height: props.deals.length > 2 ? "200px" : "auto", overflow: props.deals.length > 2 ? "auto" : "hidden"}}>
+        <div className={`${ props.deals.length > 1 ? "deals" : ""}`} style={{ padding: "0px 20px 20px 20px",marginBottom:"20px", marginLeft:"auto", marginRight:"auto", width:"50%", borderRadius:"10px", borderWidth:"1px",borderStyle:"solid", height: "200px", overflow: props.deals.length > 1 ? "auto" : "hidden"}}>
             <h3 style={{textAlign:"center"}}>Current Prices</h3>
             <p style={{fontSize:"13px", textAlign:"center", marginBottom:"10px"}}>* US dollar ~ Canadian dollar</p>
             {props.deals.map((item) =>(

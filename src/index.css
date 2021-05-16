@@ -96,7 +96,7 @@ body {
   border-left: 5px solid green;
 }
 
-.task h3 {
+.item h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,11 +155,17 @@ footer {
 
 .modal {
   width: 40%;
+  height: 78%;
+  overflow: auto;
   top: 50px;
   margin-left: 30%;
   margin-right: 30%;
   position: fixed; 
   border-radius: 15px;
   background-color:rgb(110, 178, 218);
-  
+}
+.modal::-webkit-scrollbar{
+  display: none;
+  -ms-overflow-style: auto;
+  scrollbar-width: none;
 }
