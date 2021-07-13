@@ -76,7 +76,7 @@ body {
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  width: 50%;
+  width: 450px;
   margin-left: auto;
   margin-right: auto;
   height: auto;
@@ -84,6 +84,7 @@ body {
 
 .deals::-webkit-scrollbar{
   display: none;
+  width: 0px;
   -ms-overflow-style: auto;
   scrollbar-width: none;
 }
@@ -103,7 +104,7 @@ body {
 }
 
 .add-form {
-  width: 50%;
+  width: 450px;
   margin: auto;
   margin-bottom: 20px;
 }
@@ -154,18 +155,37 @@ footer {
 }
 
 .modal {
-  width: 700px;
-  height: 78%;
+  width: 650px;
+  height: 75%;
   overflow: auto;
   top: 50px;
   right: 50%;
-  margin-right: -350px;
+  margin-right: -325px;
   position: fixed; 
   border-radius: 15px;
   background-color:rgb(110, 178, 218);
 }
 .modal::-webkit-scrollbar{
   display: none;
+  width: 0px;
   -ms-overflow-style: auto;
   scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

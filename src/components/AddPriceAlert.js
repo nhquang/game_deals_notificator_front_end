@@ -21,7 +21,7 @@ function AddPriceAlert({addPriceAlert, gameID, gameTitle}) {
     };
     return (
 
-        <form className= "add-form" onSubmit={submitting} style={{marginBottom:"20px"}}>
+        <form className= "add-form" onSubmit={submitting} style={{marginBottom:"20px", width:"55%"}}>
             <div className='form-control'>
                 <input type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)}/>
             </div>
